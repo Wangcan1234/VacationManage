@@ -11,13 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::any('request1','MemberController@request1');
 Route::group(['middleware'=>['web']],function(){
     Route::any('check','loginController@check');
     Route::any('goods','MemberController@goods');
+    Route::any('/','MemberController@goods');
 
 
 });
